@@ -10,7 +10,7 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentForm: "sell",
+      currentForm: "buy",
       show: false,
       handleClose: () => this.setState({ show: false }),
       handleShow: () => this.setState({ show: true }),
