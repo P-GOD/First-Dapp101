@@ -20,6 +20,12 @@ import ethswap from "./../abis/Ethswap.json";
 import Bnb from "./../abis/Binance.json";
 import bnbSwap from "./../abis/Bnbswap.json";
 import About from "./../pages/About";
+import MainDai from './../pages/mDai/MainU'
+import Dai from './../abis/Dai.json'
+import DaiSwap from './../abis/DaiSwap.json'
+import Usdc from './../abis/Usdc.json'
+import UsdcSwap from './../abis/Usdcswap.json'
+import MainUsdc from './../pages/mUSDC/MainU'
 
 let web3 = new Web3();
 
@@ -57,69 +63,48 @@ class App extends Component {
     //load mUsdt
     const musdtAbi = Tether.abi;
     const musdtAddress = "0x8b74DdA20Dd6107823693C1b437f6849a42eB676";
-    if (networkId == 1666700000) {
       const usdtToken = new web3.eth.Contract(musdtAbi, musdtAddress);
       this.setState({ usdtToken });
       let usdtBalance = await usdtToken.methods
         .balanceOf(this.state.account)
         .call();
       this.setState({ usdtBalance: usdtBalance.toString() });
-    } else {
-      window.alert("mUSDT contract not deployed to detected network.");
-    }
+   
 
     //load Cloudswap
     const cloudswapAbi = Cloudswap.abi;
     const cloudswapAddress = "0x92e7C15f8c98288A9a0A9fc5281AA837B17D6D82";
-    if (networkId == 1666700000) {
       const cloudSwap = new web3.eth.Contract(cloudswapAbi, cloudswapAddress);
       this.setState({ cloudSwap });
-    } else {
-      window.alert(
-        "Clouds Kingdom Swap contract not deployed to detected network."
-      );
-    }
+    
 
     //load usdtSwap
     const usdtswapAbi = Usdtswap.abi;
     const usdtswapAddress = "0xfE5f3518CB4b80F0e424d1dDf860A37fa91b17d9";
-    if (networkId == 1666700000) {
       const usdtSwap = new web3.eth.Contract(usdtswapAbi, usdtswapAddress);
       this.setState({ usdtSwap });
-    } else {
-      window.alert(
-        "Clouds Kingdom Swap contract not deployed to detected network."
-      );
-    }
+    
 
     //load Cloudfarm
     const cloudfarmAbi = Cloudfarm.abi;
     const cloudfarmAddress = "0x6838c76A8b7F3155D78C2bDf549b2e42ed28d4C2";
-    if (networkId == 1666700000) {
       const cloudfarm = new web3.eth.Contract(cloudfarmAbi, cloudfarmAddress);
       this.setState({ cloudfarm });
       let stakingBalance = await cloudfarm.methods
         .stakingBalance(this.state.account)
         .call();
       this.setState({ stakingBalance: stakingBalance.toString() });
-    } else {
-      window.alert(
-        "CloudsKingdomSwap contract not deployed to detected network."
-      );
-    }
+    
 
     const methAbi = Eth.abi;
     const methAddress = "0x79eBF567B2207dAfd8DA44FAb897664F5ef1EF11";
-    if (networkId == 1666700000) {
       const ethToken = new web3.eth.Contract(methAbi, methAddress);
       this.setState({ ethToken });
       let ethBalance = await ethToken.methods
         .balanceOf(this.state.account)
         .call();
       this.setState({ ethBalance: ethBalance.toString() });
-    } else {
-      window.alert("meth contract not deployed to detected network.");
-    }
+    
 
     //load ethswap
     const ethswapAbi = ethswap.abi;
@@ -135,27 +120,44 @@ class App extends Component {
 
     const mbnbAbi = Bnb.abi;
     const mbnbAddress = "0xdE8335956603378F934f7E2De27a9961E5f67642";
-    if (networkId == 1666700000) {
       const bnbToken = new web3.eth.Contract(mbnbAbi, mbnbAddress);
       this.setState({ bnbToken });
       let nbnbBalance = await bnbToken.methods
         .balanceOf(this.state.account)
         .call();
       this.setState({ bnbBalance: nbnbBalance.toString() });
-    } else {
-      window.alert("mbnb contract not deployed to detected network.");
-    }
+    
 
     const bnbswapAbi = bnbSwap.abi;
     const bnbswapAddress = "0xB3c9ef8f9Ddf730DedbE1A1f7cbd75b90b3dD2Ec";
-    if (networkId == 1666700000) {
-      const bnbswap = new web3.eth.Contract(bnbswapAbi, bnbswapAddress);
-      this.setState({ bnbswap });
-    } else {
-      window.alert(
-        "Clouds Kingdom Swap contract not deployed to detected network."
-      );
-    }
+    const bnbswap = new web3.eth.Contract(bnbswapAbi, bnbswapAddress);
+    this.setState({ bnbswap });
+
+    const mDaiAbi = Dai.abi;
+    const mDaiAddress = "0x6A8260462dDc437a513A132d91c32E31f9edB9E1";
+    const daiToken = new web3.eth.Contract(mDaiAbi, mDaiAddress);
+    this.setState({ daiToken});
+    let daiBalance = await daiToken.methods.balanceOf(this.state.account).call();
+    this.setState({daiBalance: daiBalance.toString()});
+
+    const mDaiSwapAbi = DaiSwap.abi;
+    const mDaiSwapAddress = '0x03f265684CeCca39ac2890590E12f49f4A8a1fAB'
+    const daiSwap = new web3.eth.Contract(mDaiSwapAbi, mDaiSwapAddress);
+    this.setState({ daiSwap });
+
+    const mUsdcAbi = Usdc.abi;
+    const mUsdcAddress = "0xA6f3DA12e1FBD59437AE6137f8d01aD8a1a2C6ab";
+    const usdcToken = new web3.eth.Contract(mUsdcAbi, mUsdcAddress);
+    this.setState({ usdcToken});
+    let usdcBalance = await usdcToken.methods.balanceOf(this.state.account).call();
+    this.setState({usdcBalance: usdcBalance.toString()});
+    
+    const mUsdcSwapAbi = UsdcSwap.abi;
+    const mUsdcSwapAddress = '0x2e94bcb6D95af59C5ddb62bE7b8d196b2ca5BF3f'
+    const usdcSwap = new web3.eth.Contract(mUsdcSwapAbi, mUsdcSwapAddress);
+    this.setState({ usdcSwap });
+
+
 
     this.setState({ loading: false });
   }
@@ -338,6 +340,59 @@ class App extends Component {
       });
   };
 
+  buyDai = (oneAmount) => {
+    this.setState({ loading: true });
+    this.state.daiSwap.methods
+      .buyDai()
+      //value = Payable
+      .send({ value: oneAmount, from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({ loading: false });
+      });
+  };
+
+  sellDai = (tokenAmount) => {
+    this.setState({ loading: true });
+    this.state.daiToken.methods
+      .approve("0x03f265684CeCca39ac2890590E12f49f4A8a1fAB", tokenAmount)
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.state.daiSwap.methods
+          .sellDai(tokenAmount)
+          .send({ from: this.state.account })
+          .on("transactionHash", (hash) => {
+            this.setState({ loading: false });
+          });
+      });
+  };
+
+
+  buyUsdc = (oneAmount) => {
+    this.setState({ loading: true });
+    this.state.usdcSwap.methods
+      .buyUsdc()
+      //value = Payable
+      .send({ value: oneAmount, from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({ loading: false });
+      });
+  };
+
+  sellUsdc = (tokenAmount) => {
+    this.setState({ loading: true });
+    this.state.usdcToken.methods
+      .approve("0x03f265684CeCca39ac2890590E12f49f4A8a1fAB", tokenAmount)
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.state.usdcSwap.methods
+          .sellUsdc(tokenAmount)
+          .send({ from: this.state.account })
+          .on("transactionHash", (hash) => {
+            this.setState({ loading: false });
+          });
+      });
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -358,6 +413,12 @@ class App extends Component {
       bnbToken: {},
       bnbBalance: 0,
       bnbswap: {},
+      usdcSwap: {},
+      usdcToken: {},
+      usdcBalance: 0,
+      daiSwap: {},
+      daiBalance: 0,
+      daiToken: {}
     };
   }
 
@@ -437,6 +498,23 @@ class App extends Component {
                   />
                 }
               />
+              <Route path="/dswap"
+              element={<MainDai
+                oneBalance= {this.state.oneBalance}
+                daiBalance= {this.state.daiBalance}
+                buyDai ={this.buyDai}
+                sellDai = {this.sellDai}
+              />}
+              />
+              <Route path="usdcswap"
+              element={<MainUsdc
+              oneBalance = {this.state.oneBalance}
+              usdcBalance = {this.state.usdcBalance}
+              buyUsdc={this.buyUsdc}
+              sellUsdc={this.sellUsdc}
+              />}
+              />
+        
             </Routes>
           </div>
           {contentFoot}

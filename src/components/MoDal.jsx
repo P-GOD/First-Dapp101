@@ -5,6 +5,8 @@ import usdt from "./../resources/Tether.png";
 import nim from "./../resources/tokenLogo.png";
 import eth from "./../resources/ethtoken.png";
 import bnb from "./../resources/BNB.png";
+import dai from "./../resources/dai.png"
+import usdc from './../resources/usdc.png'
 
 export const MoDal = (props) => {
   return (
@@ -33,6 +35,16 @@ export const MoDal = (props) => {
             <Nav.Link as={Link} to="/bswap" className="col">
               <Image src={bnb} height={29} />
               <span className="ml-2">mBNB</span>
+            </Nav.Link>
+            <div class="w-100"></div>
+            <Nav.Link as={Link} to="/dswap" className="col">
+              <Image src={dai} height={29} />
+              <span className="ml-2">mDai</span>
+            </Nav.Link>
+            <div class="w-100"></div>
+            <Nav.Link as={Link} to="/usdcswap" className="col">
+              <Image src={usdc} height={29} />
+              <span className="ml-2">mUSDC</span>
             </Nav.Link>
           </Nav>
         </Modal.Body>

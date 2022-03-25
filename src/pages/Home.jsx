@@ -1,8 +1,7 @@
 import React from "react";
 import "./Home.css";
-import { Image, Button, Nav } from "react-bootstrap";
+import { Image, Nav } from "react-bootstrap";
 import maskot from "./../resources/homeBranner.png";
-import cloud from "./../resources/prop6.png";
 import { Link } from "react-router-dom";
 
 function Home() {
