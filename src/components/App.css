@@ -1,0 +1,97 @@
+body {
+  background-image: url(./../resources/Artboard.png);
+  font-family: Kanit, sans-serif;
+}
+/* From cssbuttons.io by @Voxybuns */
+
+form {
+  border-radius: 30%;
+}
+body {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 1.6em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.btn {
+  border-radius: 20px;
+  padding: 8px 12px;
+  color: #1f1001;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+  background-color: rgb(176, 252, 248);
+  border: none;
+}
+
+.btn:hover {
+  /* Pull the button upwards when hovered */
+  background-color: #e9ecef;
+}
+
+.card {
+  background: #ffffff;
+  max-width: 500px;
+  margin: 100px auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  box-sizing: border-box;
+  padding: 48px;
+  text-align: center;
+  border: solid black 5px;
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+.input-form {
+  border-radius: 20px;
+  border: none;
+  position: relative;
+  background-color: #e9ecef;
+}
+.row-m {
+  margin-top: 12.5rem;
+}
+.NavBar {
+  margin-bottom: -20px;
+}
+.main-footer {
+  position: relative;
+}
+.hei {
+  height: 3rem;
+}
+.botton-rotate {
+  position: absolute;
+  margin-top: 6.5rem;
+  margin-left: -1.5rem;
+}
+.myskills {
+  list-style: none;
+  justify-content: center;
+  position: relative;
+}
