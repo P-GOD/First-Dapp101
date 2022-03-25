@@ -374,7 +374,6 @@ class App extends Component {
         <Main
           oneBalance={this.state.oneBalance}
           tokenBalance={this.state.tokenBalance}
-          oneBalance={this.state.oneBalance}
           buyNimbus={this.buyNimbus}
           sellNimbus={this.sellNimbus}
         />
